@@ -11,7 +11,7 @@ const linkStyle = ({ isActive }: { isActive: boolean }) => ({
 export default function Header() {
   const { cart } = useCart();
 
-  const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const { itemCount } = useCart();
 
   return (
     <header
