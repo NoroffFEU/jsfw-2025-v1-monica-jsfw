@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { getProductById } from "../services/api";
 import type { Product } from "../types/product";
 import { useCart } from "../context/CartContext";
+import toast from "react-hot-toast";
 
 function formatPrice(value: number) {
   return value.toFixed(2);
@@ -23,21 +24,27 @@ export default function ProductDetails() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!id) return;
+  if (!id) {
+    setError("Product not found.");
+    setLoading(false);
+    return;
+  }
 
-    async function fetchProduct() {
-      try {
-        const result = await getProductById(id);
-        setProduct(result.data);
-      } catch {
-        setError("Could not load product.");
-      } finally {
-        setLoading(false);
-      }
+  const productId = id;
+
+  async function fetchProduct() {
+    try {
+      const result = await getProductById(productId);
+      setProduct(result.data);
+    } catch {
+      setError("Could not load product.");
+    } finally {
+      setLoading(false);
     }
+  }
 
-    fetchProduct();
-  }, [id]);
+  fetchProduct();
+}, [id]);
 
   if (loading) return <p style={{ padding: 20 }}>Loading product...</p>;
   if (error) return <p style={{ padding: 20 }}>{error}</p>;
@@ -65,7 +72,7 @@ export default function ProductDetails() {
           <div
             style={{
               border: "1px solid var(--border)",
-              borderRadius: 16,
+              borderRadius: 3,
               overflow: "hidden",
               background: "var(--card)",
             }}
@@ -136,7 +143,7 @@ export default function ProductDetails() {
               </div>
             )}
 
-            {/* Add to cart button (we wire it later) */}
+            {/* Add to cart button */}
             <button
               type="button"
               style={{
@@ -149,7 +156,10 @@ export default function ProductDetails() {
                 fontWeight: 700,
                 cursor: "pointer",
               }}
-              onClick={() => addToCart(product)}
+              onClick={() => {
+                addToCart(product);
+                toast.success("Added to cart");
+            }}
             >
               Add to Cart
             </button>

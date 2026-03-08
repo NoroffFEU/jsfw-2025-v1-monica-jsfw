@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
+import toast from "react-hot-toast";
 
 function formatPrice(value: number) {
   return value.toFixed(2);
@@ -76,7 +77,10 @@ export default function Cart() {
 
               <button
                 type="button"
-                onClick={() => removeFromCart(item.id)}
+                onClick={() => {
+                  removeFromCart(item.id);
+                  toast.success("Item removed");
+                }}
                 style={{
                   padding: "10px 12px",
                   borderRadius: 12,

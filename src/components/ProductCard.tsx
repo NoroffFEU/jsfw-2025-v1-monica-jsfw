@@ -21,11 +21,12 @@ export default function ProductCard({ product }: { product: Product }) {
   display: "block",
   width: "100%",
   border: "1px solid var(--border)",
-  borderRadius: 14,
+  borderRadius: 3,
   overflow: "hidden",
   textDecoration: "none",
   color: "inherit",
   background: "var(--card)",
+  boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
   position: "relative",
   transition: "transform 0.2s ease",
 }}

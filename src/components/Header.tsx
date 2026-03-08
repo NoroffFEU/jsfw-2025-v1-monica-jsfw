@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 
 const linkStyle = ({ isActive }: { isActive: boolean }) => ({
@@ -9,20 +9,20 @@ const linkStyle = ({ isActive }: { isActive: boolean }) => ({
 });
 
 export default function Header() {
-  const { cart } = useCart();
 
   const { itemCount } = useCart();
 
   return (
     <header
-      style={{
-        position: "sticky",
-        top: 0,
-        zIndex: 10,
-        background: "var(--bg)",
-        borderBottom: "1px solid var(--border)",
-      }}
-    >
+  style={{
+    position: "sticky",
+    top: 0,
+    zIndex: 10,
+    background: "var(--bg)",
+    borderBottom: "1px solid var(--border)",
+    boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
+  }}
+>
       <div
         style={{
           maxWidth: 1200,
@@ -34,7 +34,19 @@ export default function Header() {
           gap: 16,
         }}
       >
-        <nav style={{ display: "flex", gap: 16, alignItems: "center" }}>
+        <Link
+          to="/"
+          style={{
+            textDecoration: "none",
+            color: "inherit",
+            letterSpacing: "0.10em",
+            fontWeight: 700,
+         }}
+>
+  <h2 style={{ margin: 0 }}>LUMET</h2>
+</Link>
+
+        <nav style={{ display: "flex", gap: 28, alignItems: "center" }}>
           <NavLink to="/" style={linkStyle}>
             Products
           </NavLink>

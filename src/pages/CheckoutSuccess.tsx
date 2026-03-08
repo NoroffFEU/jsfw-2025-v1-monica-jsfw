@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 export default function CheckoutSuccess() {
   return (
     <div style={{ padding: 20 }}>
-      <div style={{ maxWidth: 900, margin: "0 auto" }}>
+      <div style={{ maxWidth: 900, margin: "80px auto", padding: 20 }}>
         <h1>Checkout Success! </h1>
 
         <p style={{ marginTop: 10, color: "var(--muted)" }}>
-          Thank you for your purchase. Your order has been completed and your cart has been cleared.
+          Thank you for your purchase. Your order has been completed.
         </p>
 
         <Link to="/" style={{ marginTop: 20, display: "inline-block" }}>

@@ -1,73 +1,103 @@
-# React + TypeScript + Vite
+# LUMET – Online Shop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The store brand used in this project is **LUMET**, a fictional online shop created for this assignment.
 
-Currently, two official plugins are available:
+LUMET is a responsive online shop built with **React, TypeScript, and Vite**.  
+The application fetches products from the Noroff Online Shop API and allows users to browse products, view details, add items to a cart, and complete a checkout flow.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Product list fetched from the Noroff Online Shop API
+- Product details page with price, discount, rating, and reviews
+- Add products to cart
+- Cart quantity updates
+- Remove items from cart
+- Cart total calculation
+- Checkout success page (cart cleared after checkout)
+- Contact form with validation
+- Responsive layout
+- Toast notifications for cart actions
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- React
+- TypeScript
+- Vite
+- React Router
+- React Context API
+- React Hot Toast
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## API
+
+This project uses the **Noroff Online Shop API**.
+
+Endpoints used:
+
+```
+GET /online-shop
+GET /online-shop/:id
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Documentation:  
+https://docs.noroff.dev/docs/v2/basic/online-shop
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Run the Project Locally
+
+Install dependencies:
+
+```bash
+npm install
 ```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+The project will run on:
+
+```
+http://localhost:5173
+```
+
+---
+
+## Build for Production
+
+To create a production build:
+
+```bash
+npm run build
+```
+
+---
+
+## Live Demo
+
+Add your deployed site link here:
+
+```
+https://lumet-shop.netlify.app
+```
+
+---
+
+## AI Usage
+
+AI tools were used during the development of this project for:
+
+- Debugging assistance
+- Concept explanations
+- Guidance on React Context and state management
+- Code review and optimization suggestions
+
+Details of AI usage are documented in **AI_LOG.md**.
